@@ -1,16 +1,25 @@
-# This is a sample Python script.
+def main():
+    with open('01.txt') as file:
+        lines = file.read().splitlines()
+        calories =[]
+        totalCurrentCalories = 0
+        for line in lines:
+            if line:
+                totalCurrentCalories = totalCurrentCalories + int(line)
+            else:
+                calories.append(totalCurrentCalories)
+                totalCurrentCalories = 0
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    print('Part One:'+str(max(calories)))
+    # START OF PART TWO#
+    calories = sorted(calories)
+    calories.reverse()
+    sumOfTopThree= calories[0]+ calories[1]+calories[2]
+    print('Part Two: '+str(sumOfTopThree))
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    main()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
